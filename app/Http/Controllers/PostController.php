@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Post;
 
 class PostController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $posts = Post::latest()->get();
 
         return view('posts.posts', [
@@ -15,16 +17,19 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $post = Post::findOrFail($id);
         return view('posts.detail', ['post' => $post]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('posts.create');
     }
 
-    public function store() {
+    public function store()
+    {
         $post = new Post();
         $post->title = request('postTitle');
         $post->body = request('postBody');
@@ -32,9 +37,19 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $post = Post::findOrFail($id);
         $post->delete();
         return redirect('/posts');
     }
+
+    public function postsByAuthor($id)
+    {
+        $user = User::findOrFail($id);
+        $posts = $user->posts();
+        return view('posts.posts', ['posts' => $posts, 'user' => $user]);
+    }
+
+
 }

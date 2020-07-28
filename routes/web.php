@@ -23,6 +23,8 @@ Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{id}', 'PostController@show');
 Route::delete('posts/{id}', 'PostController@destroy');
 
+Route::get('/posts/user/{id}', 'PostController@postsByAuthor');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -25,7 +25,7 @@
                 <a class="nav-link" href="/posts/create">Create Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="posts/">My Posts</a>
+                <a class="nav-link" href="posts/user/{{ Auth::user()->id }}">My Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>

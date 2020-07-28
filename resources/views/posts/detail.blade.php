@@ -3,7 +3,7 @@
 @section('content')
         <div class="card text-center my-2">
             <div class="card-header">
-                {{$post[ 'author' ]}}
+                {{$post->author->name}}
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{$post->title}}</h5>

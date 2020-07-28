@@ -1,12 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1>Hello
-    @if($name)
-        , {{ $name }}
-    @endif
-    !
-</h1>
+
 @foreach($posts as $post)
     <div class="card text-center my-2">
         <div class="card-header">

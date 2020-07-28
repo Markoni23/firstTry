@@ -8,12 +8,10 @@ use App\Post;
 class PostController extends Controller
 {
     public function index() {
-        $name = request('name');
         $posts = Post::latest()->get();
 
         return view('posts.posts', [
             'posts' => $posts,
-            'name' => $name,
         ]);
     }
 

@@ -23,6 +23,10 @@ Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{id}', 'PostController@show');
 Route::delete('posts/{id}', 'PostController@destroy');
 
+Route::get('/posts/{postId}/comment', 'CommentController@create');
+Route::post('/posts/{postId}/comment', 'CommentController@store');
+
+
 Route::get('/posts/user/{id}', 'PostController@postsByAuthor');
 
 Auth::routes();

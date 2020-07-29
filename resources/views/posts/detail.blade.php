@@ -8,7 +8,6 @@
             <div class="card-body">
                 <h5 class="card-title">{{$post->title}}</h5>
                 <p class="card-text">{{$post->body}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
         @if(Auth::user() == $post->author)
@@ -18,5 +17,18 @@
                 <button class="btn btn-warning">Delete post</button>
             </form>
         @endif
+        <a href="/posts/{{$post->id}}/comment" class="btn btn-primary">Add comment</a>
+
+        <div class="container mt-1">
+            <h1>Comments:</h1>
+        @foreach($comments as $comment)
+                <div class="card w-50">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">{{$comment->body}}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
 @endsection

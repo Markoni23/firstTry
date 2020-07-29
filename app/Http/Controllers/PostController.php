@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
 use App\Post;
@@ -20,7 +21,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.detail', ['post' => $post]);
+        $comments = Comment::all();
+        return view('posts.detail', ['post' => $post, 'comments' => $comments]);
     }
 
     public function create()

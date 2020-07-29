@@ -24,7 +24,7 @@
         @foreach($comments as $comment)
                 <div class="card w-50">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
+                        <h5 class="card-title">{{$comment->author->name}}</h5>
                         <p class="card-text">{{$comment->body}}</p>
                     </div>
                 </div>

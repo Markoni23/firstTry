@@ -11,10 +11,12 @@
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
-        <form action="/posts/{{ $post->id }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-warning">Delete post</button>
-        </form>
+        @if(Auth::user() == $post->author)
+            <form action="/posts/{{ $post->id }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-warning">Delete post</button>
+            </form>
+        @endif
 
 @endsection
